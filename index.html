@@ -8,7 +8,7 @@
     <meta property="og:title" content="VRChat プレイ時間分析ツール">
     <meta property="og:description" content="VRChatのプレイ開始日、総プレイ時間、生年月日を入力すると、VRChatプレイ時間の詳細や人生に占める割合などを楽しく分析できます。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="[ここにツールの公開URLを入力してください]">
+    <meta property="og:url" content="https://poko1024.github.io/">
     <meta property="og:image" content="https://poko1024.github.io/thumbnail.png">
     <meta property="og:site_name" content="VRChat プレイ時間分析ツール">
     <meta property="og:locale" content="ja_JP">
@@ -16,7 +16,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="VRChat プレイ時間分析ツール">
     <meta name="twitter:description" content="VRChatのプレイ開始日、総プレイ時間、生年月日を入力すると、VRChatプレイ時間の詳細や人生に占める割合などを楽しく分析できます。">
-    <meta name="twitter:image" content="./thumbnail.png">
+    <meta name="twitter:image" content="https://poko1024.github.io/thumbnail.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -615,9 +616,9 @@
                 const playRatioAnimations = [
                     animateCountUp(ratioPlayToTotalSinceStartPercentDisplay, ratioPlayPercentVal, BASE_ANIMATION_DURATION, 2, " %"),
                     animateCountUp(ratioPlayDaysValDisplay, vrchatPlayTimeDaysInt, BASE_ANIMATION_DURATION, 0, ""),
-                    animateCountUp(ratioPlayDaysTotalDisplay, Math.floor(totalDaysVal), BASE_ANIMATION_DURATION, 0, "日"),
+                    animateCountUp(ratioPlayDaysTotalDisplay, Math.floor(totalDaysVal), BASE_ANIMATION_DURATION, 0, ""),
                     animateCountUp(ratioPlayHoursValDisplay, vrchatPlayTimeHoursInt, BASE_ANIMATION_DURATION, 0, ""),
-                    animateCountUp(ratioPlayHoursTotalDisplay, Math.floor(totalHoursVal), BASE_ANIMATION_DURATION, 0, "時間")
+                    animateCountUp(ratioPlayHoursTotalDisplay, Math.floor(totalHoursVal), BASE_ANIMATION_DURATION, 0, "")
                 ];
                 await Promise.all(playRatioAnimations);
 
@@ -648,9 +649,9 @@
                     const lifeRatioAnimations = [
                         animateCountUp(ratioPlayToLifePercentDisplay, lifeRatioPercentVal, BASE_ANIMATION_DURATION, 2, " %"),
                         animateCountUp(ratioLifeDaysValDisplay, vrchatPlayTimeDaysInt, BASE_ANIMATION_DURATION, 0, ""),
-                        animateCountUp(ratioLifeDaysTotalDisplay, Math.floor(totalLifeDaysVal), BASE_ANIMATION_DURATION, 0, "日"),
+                        animateCountUp(ratioLifeDaysTotalDisplay, Math.floor(totalLifeDaysVal), BASE_ANIMATION_DURATION, 0, ""),
                         animateCountUp(ratioLifeHoursValDisplay, vrchatPlayTimeHoursInt, BASE_ANIMATION_DURATION, 0, ""),
-                        animateCountUp(ratioLifeHoursTotalDisplay, Math.floor(totalLifeHoursVal), BASE_ANIMATION_DURATION, 0, "時間")
+                        animateCountUp(ratioLifeHoursTotalDisplay, Math.floor(totalLifeHoursVal), BASE_ANIMATION_DURATION, 0, "")
                     ];
                     await Promise.all(lifeRatioAnimations);
 
