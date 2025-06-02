@@ -8,38 +8,48 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; 
-            color: #1f2937; 
+            background-color: #f3f4f6;
+            color: #1f2937;
             display: flex;
-            justify-content: center;
-            align-items: flex-start; 
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
-            padding: 1rem; 
+            padding: 1rem;
+        }
+        .creator-credit {
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-align: center;
+            width: 100%;
+            padding-top: 0.5rem; 
+            margin-bottom: 0.5rem;
         }
         .container {
-            max-width: 700px; 
-            width: 100%; 
-            margin: 2rem auto;
-            padding: 2.5rem; 
+            max-width: 700px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem; 
+            padding: 2.5rem;
             background-color: white;
             border-radius: 0.75rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         .input-group legend, .input-group > label {
             display: block;
             margin-bottom: 0.75rem;
-            font-weight: 600; 
-            color: #374151; 
-            font-size: 0.95rem; 
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.95rem;
         }
         .date-inputs {
             display: flex;
             align-items: center;
-            gap: 0.75rem; 
+            gap: 0.75rem;
         }
         .input-field {
-            padding: 0.85rem; 
-            border: 1px solid #d1d5db; 
+            padding: 0.85rem;
+            border: 1px solid #d1d5db;
             border-radius: 0.5rem;
             box-sizing: border-box;
             transition: border-color 0.3s, box-shadow 0.3s;
@@ -48,22 +58,21 @@
         }
         .input-field:focus {
             outline: none;
-            border-color: #4f46e5; 
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); 
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
         }
         .input-year { width: 6rem; }
         .input-month-day { width: 4.5rem; }
         #vrchatPlayTime {
-            width: 11rem; 
+            width: 11rem;
         }
-
         .btn {
             display: inline-block;
-            padding: 0.85rem 1.75rem; 
-            background-color: #4f46e5; 
+            padding: 0.85rem 1.75rem;
+            background-color: #4f46e5;
             color: white;
             font-weight: 600;
-            font-size: 1rem; 
+            font-size: 1rem;
             border-radius: 0.5rem;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.1s;
@@ -72,37 +81,35 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .btn:hover {
-            background-color: #4338ca; 
+            background-color: #4338ca;
         }
         .btn:active {
             transform: translateY(1px);
         }
         .btn-copy {
-            background-color: #0ea5e9; 
-            margin-top: 1.5rem; 
+            background-color: #0ea5e9;
+            margin-top: 1.5rem;
         }
         .btn-copy:hover {
-            background-color: #0284c7; 
+            background-color: #0284c7;
         }
-
-
         .results-card {
-            margin-top: 2.5rem; 
-            padding: 2rem; 
-            background-color: #f9fafb; 
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background-color: #f9fafb;
             border-radius: 0.75rem;
-            border: 1px solid #e5e7eb; 
+            border: 1px solid #e5e7eb;
         }
         .results-card h3 {
-            font-size: 1.35rem; 
-            font-weight: 700; 
-            margin-bottom: 1.5rem; 
-            color: #111827; 
-            border-bottom: 1px solid #e5e7eb; 
-            padding-bottom: 0.75rem; 
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #111827;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.75rem;
         }
         .result-item {
-            margin-bottom: 1.75rem; 
+            margin-bottom: 1.75rem;
             font-size: 1rem;
             opacity: 0;
             transform: translateY(10px);
@@ -112,73 +119,72 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .result-item strong { 
+        .result-item strong {
             font-weight: 600;
-            color: #374151; 
+            color: #374151;
             display: block;
-            margin-bottom: 0.5rem; 
-            font-size: 1.05rem; 
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
         }
         .result-item .value-span, .result-item .ymd-value-span span {
-            color: #4f46e5; 
+            color: #4f46e5;
             font-weight: bold;
         }
          .result-item .value-span {
              padding-left: 0.5rem;
          }
         .percent-large {
-            font-size: 1.6em; 
-            font-weight: 700; 
-            color: #4f46e5; 
-            display: inline-block; 
-            margin-bottom: 0.5rem; 
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #4f46e5;
+            display: inline-block;
+            margin-bottom: 0.5rem;
             padding-left: 0.5rem;
         }
         .overflow-indicator {
-            font-size: 0.6em; 
-            color: #ef4444; 
+            font-size: 0.6em;
+            color: #ef4444;
             margin-left: 0.25rem;
             font-weight: normal;
-            vertical-align: middle; 
+            vertical-align: middle;
         }
         .ratio-details {
-            font-size: 0.95rem; 
-            color: #4b5563; 
+            font-size: 0.95rem;
+            color: #4b5563;
             padding-left: 0.5rem;
-            margin-top: 0.25rem; 
+            margin-top: 0.25rem;
         }
         .ratio-detail-item {
             display: inline-block;
-            margin-right: 1.25rem; 
+            margin-right: 1.25rem;
             align-items: center;
         }
         .boxed-value {
-            border: 1px solid #d1d5db; 
-            padding: 0.2rem 0.5rem; 
-            border-radius: 0.375rem; 
-            background-color: #eef2ff; 
+            border: 1px solid #d1d5db;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.375rem;
+            background-color: #eef2ff;
             display: inline-block;
-            margin-left: 0.35rem; 
+            margin-left: 0.35rem;
         }
         .boxed-value .animated-value {
             font-weight: bold;
-            color: #4f46e5; 
+            color: #4f46e5;
         }
-
         .result-sub-item {
             padding-left: 1rem;
-            margin-bottom: 0.6rem; 
-            font-size: 0.95rem; 
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
         }
-        .result-sub-item strong { 
-            font-weight: 500; 
-            color: #4b5563; 
+        .result-sub-item strong {
+            font-weight: 500;
+            color: #4b5563;
         }
         .current-date-display {
-            font-size: 0.85em; 
-            color: #6b7280; 
+            font-size: 0.85em;
+            color: #6b7280;
             text-align: right;
-            margin-top: 1rem; 
+            margin-top: 1rem;
             opacity: 0;
             transition: opacity 0.5s ease-out 0.2s;
         }
@@ -189,7 +195,7 @@
             color: #ef4444;
             background-color: #fee2e2;
             border: 1px solid #fca5a5;
-            padding: 0.85rem; 
+            padding: 0.85rem;
             border-radius: 0.5rem;
             margin-top: 1rem;
             text-align: center;
@@ -199,28 +205,27 @@
             font-size: 0.875rem;
             color: #6b7280;
             margin-left: 0.5rem;
-            font-weight: normal; 
+            font-weight: normal;
         }
-
         .ratio-bar-container {
             width: 100%;
-            height: 14px; 
+            height: 14px;
             background-color: #e5e7eb;
-            border-radius: 7px; 
-            margin-top: 0.75rem; 
+            border-radius: 7px;
+            margin-top: 0.75rem;
             overflow: hidden;
         }
         .ratio-bar {
             width: 0%;
             height: 100%;
-            background-color: #6366f1; 
+            background-color: #6366f1;
             border-radius: 7px;
-            transition: width 1.2s ease-out; 
+            transition: width 1.2s ease-out;
         }
-
         @media (max-width: 640px) {
             body { padding: 0.5rem; }
-            .container { margin: 1rem auto; padding: 1.5rem; }
+            .container { margin-top: 1rem; margin-bottom: 1rem; padding: 1.5rem; }
+            .creator-credit { margin-bottom: 0.25rem; padding-top: 0.25rem;}
             .date-inputs { flex-wrap: wrap; gap: 0.5rem; }
             .input-year, .input-month-day, #vrchatPlayTime { width: 100%; margin-bottom: 0.5rem;}
             .date-inputs span.text-gray-500 { margin: 0 0.25rem; }
@@ -232,6 +237,7 @@
     </style>
 </head>
 <body>
+    <div class="creator-credit">Created by, poko_VRC</div>
     <div class="container">
         <h1 class="text-3xl font-bold text-center mb-10 text-indigo-700">VRChat プレイ時間分析ツール</h1>
 
@@ -686,9 +692,9 @@
             let textToCopy = `VRChatを始めた日:[${lastCalculatedResults.vrchatStartDate}]\n`;
             textToCopy += `VRChatの総プレイ時間:[${lastCalculatedResults.vrchatPlayTime}]\n`;
             if (lastCalculatedResults.isLifeRatioCalculated && lastCalculatedResults.birthDate !== "未入力") {
-                textToCopy += `あなたの生年月日:[${lastCalculatedResults.birthDate}]\n\n\n`; // 2行空行
+                textToCopy += `あなたの生年月日:[${lastCalculatedResults.birthDate}]\n\n\n`;
             } else {
-                textToCopy += "\n\n"; // 1行空行
+                textToCopy += "\n\n";
             }
 
             textToCopy += "VRChatプレイ時間分析結果:\n\n";
