@@ -437,33 +437,31 @@
         let lastCalculatedResults = null;
 
         const qualifications = [
-            { name: "危険物取扱者乙種4類", minHours: 40, maxHours: 80, description: "ガソリン、灯油など引火性液体の取り扱いや保安監督ができる国家資格。ガソリンスタンド等で需要があります。" },
-            { name: "日商簿記3級", minHours: 60, maxHours: 100, description: "基本的な商業簿記を修得し、経理関連書類の適切な処理や青色申告書類の作成など、初歩的な実務ができるようになります。" },
-            { name: "FP技能士3級", minHours: 80, maxHours: 120, description: "くらしとお金に関する幅広い知識を学び、個人の夢や目標に基づくライフプラン実現を支援します。" },
-            { name: "ITパスポート試験", minHours: 90, maxHours: 150, description: "ITを利活用するすべての方が対象の、情報処理の基礎知識を証明する国家試験です。" },
-            { name: "第二種電気工事士", minHours: 150, maxHours: 250, description: "一般住宅や小規模店舗などの電気工事を行うために必要な国家資格です。" },
-            { name: "FP技能士2級・AFP", minHours: 180, maxHours: 280, description: "FP3級より専門的な知識・技能を習得し、顧客のニーズに応じた適切なファイナンシャル・プランニングができます。" },
-            { name: "基本情報技術者試験", minHours: 200, maxHours: 320, description: "ITエンジニアの登竜門。情報技術全般に関する基本的な知識・技能を体系的に習得していることを証明します。" },
-            { name: "日商簿記2級", minHours: 250, maxHours: 380, description: "高度な商業簿記・工業簿記（原価計算を含む）を修得し、財務諸表の数字から経営内容を把握できます。" },
-            { name: "宅地建物取引士 (宅建士)", minHours: 300, maxHours: 450, description: "不動産取引の専門家。宅地建物の売買、交換、賃借の代理・媒介などを行う際に重要事項の説明等を行います。" },
-            { name: "第一種電気工事士", minHours: 350, maxHours: 550, description: "ビルや工場など、より大規模な電気工作物の工事に従事できる国家資格です。" },
-            { name: "通関士", minHours: 400, maxHours: 580, description: "輸出入貨物の通関手続きを行う専門家。貿易関連企業で需要があります。" },
-            { name: "技術士第一次試験 (情報工学部門など)", minHours: 420, maxHours: 600, description: "科学技術に関する高度な専門知識と応用能力を認定する国家資格の第一歩です。" },
-            { name: "応用情報技術者試験", minHours: 450, maxHours: 680, description: "基本情報技術者の上位資格。ITを活用した戦略立案や、システムの設計・開発・運用などにおいて中心的な役割を担えることを証明します。" },
-            { name: "日商簿記1級", minHours: 550, maxHours: 790, description: "極めて高度な商業簿記・会計学・工業簿記・原価計算を修得し、会計基準や会社法、財務諸表等規則を踏まえ、経営管理や経営分析ができます。" },
-            { name: "行政書士", minHours: 600, maxHours: 840, description: "官公署に提出する書類や権利義務・事実証明に関する書類の作成、提出手続代理などを行う法律の専門家です。" },
-            { name: "電験三種 (第三種電気主任技術者)", minHours: 700, maxHours: 890, description: "ビルや工場などの高圧電気設備の保安監督ができる国家資格。電気設備の維持・運用に不可欠です。" },
-            { name: "情報処理安全確保支援士", minHours: 750, maxHours: 940, description: "サイバーセキュリティ対策を推進する国家資格。情報システムの安全確保に関する専門知識・技能を証明します。" },
-            { name: "社会保険労務士 (社労士)", minHours: 900, maxHours: 1300, description: "労働・社会保険に関する法律、人事・労務管理の専門家として、企業経営の健全な発展と労働者等の福祉向上に貢献します。" },
-            { name: "中小企業診断士", minHours: 1000, maxHours: 1500, description: "中小企業の経営課題に対応するための診断・助言を行う専門家。経営戦略、財務、人事など幅広い知識が求められます。" },
-            { name: "TOEIC L&R TEST 900点", minHours: 1000, maxHours: 2000, description: "英語でのコミュニケーション能力を測るテストで、900点以上はネイティブに近いレベルとされます。(現在の英語力により大きく変動)" },
-            { name: "不動産鑑定士", minHours: 1800, maxHours: 2800, description: "不動産の経済価値を判定する専門家。公的評価やコンサルティングなどを行います。" },
-            { name: "税理士 (5科目合格)", minHours: 2800, maxHours: 4000, description: "税務に関する専門家として、税務代理、税務書類の作成、税務相談などを行います。" },
-            { name: "公認会計士", minHours: 3000, maxHours: 4500, description: "会計監査の専門家であり、財務諸表の監査や会計、税務、コンサルティング業務などを行います。" },
-            { name: "司法書士", minHours: 3200, maxHours: 4200, description: "不動産登記や商業登記、供託の手続き代理、裁判所や検察庁、法務局に提出する書類作成などを行う法律の専門家です。" },
-            { name: "弁理士", minHours: 3400, maxHours: 4400, description: "特許、実用新案、意匠、商標などの知的財産権の取得や紛争解決を専門とする国家資格者です。" },
-            { name: "司法試験 (予備試験ルート)", minHours: 5000, maxHours: 10000, description: "裁判官、検察官、弁護士になるための国家資格。予備試験ルートは法科大学院修了者以外も受験可能です。" }
-        ].sort((a, b) => a.minHours - b.minHours);
+    { name: "危険物取扱者 乙種4類", minHours: 40, maxHours: 60, description: "ガソリンや灯油などの引火性液体を取り扱うための国家資格。ガソリンスタンドや化学工場などで需要があります。" },
+    { name: "FP技能士3級", minHours: 30, maxHours: 100, description: "生活とお金に関する基礎知識を学び、個人のライフプラン設計を支援する資格。" },
+    { name: "日商簿記3級", minHours: 80, maxHours: 100, description: "基本的な商業簿記を習得し、経理関連書類の適切な処理や青色申告書類の作成など、初歩的な実務ができるようになります。" },
+    { name: "ITパスポート試験", minHours: 100, maxHours: 180, description: "ITを利活用するすべての方が対象の、情報処理の基礎知識を証明する国家試験です。" },
+    { name: "第二種電気工事士", minHours: 100, maxHours: 200, description: "一般住宅や小規模店舗などの電気工事を行うために必要な国家資格です。" },
+    { name: "FP技能士2級・AFP", minHours: 150, maxHours: 300, description: "FP3級より専門的な知識・技能を習得し、顧客のニーズに応じた適切なファイナンシャル・プランニングができます。" },
+    { name: "基本情報技術者試験", minHours: 125, maxHours: 200, description: "ITエンジニアの登竜門。情報技術全般に関する基本的な知識・技能を体系的に習得していることを証明します。" },
+    { name: "日商簿記2級", minHours: 250, maxHours: 500, description: "高度な商業簿記・工業簿記（原価計算を含む）を修得し、財務諸表の数字から経営内容を把握できます。" },
+    { name: "宅地建物取引士（宅建士）", minHours: 300, maxHours: 450, description: "不動産取引の専門家。宅地建物の売買、交換、賃借の代理・媒介などを行う際に重要事項の説明等を行います。" },
+    { name: "第一種電気工事士", minHours: 350, maxHours: 550, description: "ビルや工場など、より大規模な電気工作物の工事に従事できる国家資格です。" },
+    { name: "通関士", minHours: 400, maxHours: 580, description: "輸出入貨物の通関手続きを行う専門家。貿易関連企業で需要があります。" },
+    { name: "技術士第一次試験（情報工学部門など）", minHours: 420, maxHours: 600, description: "科学技術に関する高度な専門知識と応用能力を認定する国家資格の第一歩です。" },
+    { name: "応用情報技術者試験", minHours: 450, maxHours: 680, description: "基本情報技術者の上位資格。ITを活用した戦略立案や、システムの設計・開発・運用などにおいて中心的な役割を担えることを証明します。" },
+    { name: "日商簿記1級", minHours: 550, maxHours: 790, description: "極めて高度な商業簿記・会計学・工業簿記・原価計算を修得し、会計基準や会社法、財務諸表等規則を踏まえ、経営管理や経営分析ができます。" },
+    { name: "行政書士", minHours: 600, maxHours: 840, description: "官公署に提出する書類や権利義務・事実証明に関する書類の作成、提出手続代理などを行う法律の専門家です。" },
+    { name: "電験三種（第三種電気主任技術者）", minHours: 700, maxHours: 890, description: "ビルや工場などの高圧電気設備の保安監督ができる国家資格。電気設備の維持・運用に不可欠です。" },
+    { name: "情報処理安全確保支援士", minHours: 750, maxHours: 940, description: "サイバーセキュリティ対策を推進する国家資格。情報システムの安全確保に関する専門知識・技能を証明します。" },
+    { name: "社会保険労務士（社労士）", minHours: 900, maxHours: 1300, description: "労働・社会保険に関する法律、人事・労務管理の専門家として、企業経営の健全な発展と労働者等の福祉向上に貢献します。" },
+    { name: "中小企業診断士", minHours: 1000, maxHours: 1500, description: "中小企業の経営課題に対応するための診断・助言を行う専門家。経営戦略、財務、人事など幅広い知識が求められます。" },
+    { name: "TOEIC L&R TEST 900点", minHours: 1000, maxHours: 2000, description: "英語でのコミュニケーション能力を測るテストで、900点以上はネイティブに近いレベルとされます（現在の英語力により大きく変動）。" },
+    { name: "不動産鑑定士", minHours: 1800, maxHours: 2800, description: "不動産の経済価値を判定する専門家。公的評価やコンサルティングなどを行います。" },
+    { name: "税理士（5科目合格）", minHours: 2800, maxHours: 4000, description: "税務に関する専門家として、税務代理、税務書類の作成、税務相談などを行います。" },
+    { name: "公認会計士", minHours: 3000, maxHours: 4500, description: "会計監査の専門家であり、財務諸表の監査や会計、税務、コンサルティング業務などを行います。" },
+    { name: "司法書士", minHours: 3200, maxHours: 4200, description: "不動産登記や商業登記、供託の手続き代理、裁判所や検察庁、法務局に提出する書類作成などを行う法律の専門家です。" }
+].sort((a, b) => a.minHours - b.minHours);
 
 
         function easeOutCubic(t) {
